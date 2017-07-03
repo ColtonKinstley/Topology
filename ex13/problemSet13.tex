@@ -1,0 +1,183 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+\usepackage[mathscr]{euscript}
+
+
+%SetFonts
+
+%SetFonts
+
+
+\title{Exercises \S13}
+\author{Colton Kinstley}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+
+
+%Question 1
+
+
+\section*{Question 1}
+\paragraph{}
+
+Let $X$ be a topological space; let $A$ be a subset of $X$. Suppose the for each $x \in A$ there is an open set $U$ containing $x$ such that $U \subset A $. Show that $A$ is open in $X$.
+
+
+\subsection*{Solution}
+\paragraph{}
+
+To show that $A$ is an open set in $X$ we will show that it is the union of open sets of $X$. Given $x \in  A$ let $U_x$ be an open set containing $X$ such that $U \subset A$. Then
+\[
+\bigcup_{x \in A} U_x = A
+\]
+thus $A$ is a union of open sets.
+
+
+%Question 2
+
+\section*{Question 2}
+\paragraph{}
+
+Consider the nine topologies on the set $X = \{a,b,c\}$ indicated in Example 1 of \S12. Compare them; that is, for each pair of topologies, determine whether they are comparable, and if so, which is the finer.
+
+\subsection*{Solution}
+\paragraph{}
+
+We shall label the topologies as elements in a matrix and give a sample of comparisons.
+\begin{enumerate}
+\item $\mathscr{T}_{11}$ is comparable to and coarser than all others.
+
+\item $\mathscr{T}_{33}$ is comparable to and finer than all others.
+
+\item $\mathscr{T}_{12}$, $\mathscr{T}_{31}$ and $\mathscr{T}_{32}$ are comparable with $\mathscr{T}_{31} \subset \mathscr{T}_{12}  \subset  \mathscr{T}_{32}$
+\end{enumerate}
+
+
+
+
+
+%Question 3
+
+\section*{Question 3}
+Show that the collection $\mathscr{T}_c$ given in Example  4 of \S12 is a topology on the set $X$. Is the collection
+
+\begin{equation*}
+\mathscr{T}_\infty = \{U | X \setminus U \text{ is infinite or empty or all of } X \}
+\end{equation*}
+a topology on $X$?
+
+\subsection*{Solution (part 1)}
+\paragraph{}
+
+Let $\mathscr{T}_c$ be the collection of subsets, $U$ of $X$ such that $X \setminus U = X$ or $X \setminus U$ is countable. First we see that $X \setminus X = \varnothing$ which is countable and $X \setminus \varnothing = X$ so $X, \varnothing \in \mathscr{T}_c$ . 
+
+\paragraph{}
+Next we will show that $\mathscr{T}_c$ is closed under unions. Given any union of open sets $\bigcup U_\alpha$ we have that
+
+\[
+X \setminus \bigcup U_\alpha = \bigcap (X \setminus U_\alpha).
+\]
+Because $X \setminus U_\alpha$ is countable for all $\alpha$ and the intersection of countable sets is countable we have that $\bigcup U_\alpha \in \mathscr{T}_c$ .
+
+\paragraph{}
+Finally, given any finite intersection $\bigcup_{i=1}^n U_i$ of open sets of $X$ we have that
+
+\[
+X \setminus \bigcup_{i=1}^n U_i =  \bigcap_{i=1}^n (U_i \setminus X).
+\]
+For each $i$, $X \setminus U_i$ is countable and the finite union of countable sets is countable.
+
+\subsection*{Solution (part 2)}
+\paragraph{}
+
+$\mathscr{T}_\infty$ is not a topology as it is not closed under finite intersections. For a counterexample consider $X=\mathbb{Z}$ and the two subsets $U_{-1} = \{-1,0, \dots\}$ and $U_1 = \{\dots, 0,1\}$. Though both $U_1$ and $U_{-1}$ are clearly in $\mathscr{T}_\infty$ their intersection,
+
+\[
+U_{-1} \bigcap U_1 = \{-1,0,1\}
+\]
+is finite.
+
+\section*{Question 4a}
+\paragraph{}
+
+If $\{\mathscr{T}_\alpha \}$ is a family of topologies on $X$, show that $\bigcap \mathscr{T}_\alpha$ is a topology on $X$. Is $\bigcup \mathscr{T}_\alpha$ a topology on $X$?
+
+\subsection*{Solution (part 1)}
+\paragraph{}
+
+We have that $\o$ and $X$ are in $\{\mathscr{T}_\alpha \}$ for all $\alpha$ so $\o, X \in \bigcap \mathscr{T}_\alpha$. Let $\{U_i\}_{i \in I}$ be a collection of sets in $\bigcap \mathscr{T}_\alpha$. Since each $U_i$ is an element of $\mathscr{T}_\alpha$ for all $\alpha$ and $\mathscr{T}_\alpha$ is closed under unions for each $\alpha$ we must have that
+
+\[
+\bigcup_{i \in I} U_i \in \bigcap \mathscr{T}_\alpha .
+\]
+Likewise if $\{U_i\}$ is a finite collection
+\[
+\bigcap_{i=1}^n U_i \in \mathscr{T}_\alpha
+\]
+as each $U_i \in \mathscr{T}_\alpha$ for some $\alpha$ and $\mathscr{T}_\alpha$ is closed under finite unions.
+
+\subsection*{Solution (part 2)}
+\paragraph{}
+No, $\bigcup \mathscr{T}_\alpha$ is not a topology in general. For a counterexample examine the topologies in Example 1 of \S12. Observe that $\mathscr{T}_{12} \bigcup \mathscr{T}_{21}$ is not a topology; for one $\{b\}$ is not in the union but can be obtained from intersection of elements in $\mathscr{T}_{12} \bigcup \mathscr{T}_{21}$.
+
+%Question 4b
+
+\section*{Question 4b}
+\paragraph{}
+
+Let $\{ \mathscr{T}_\alpha\}$ be a family of topologies on $X$. Show that there is a unique smallest topology on $X$ containing all the collections $\mathscr{T}_\alpha$, and a unique largest topology contained in all $\mathscr{T}_\alpha$.
+
+\subsection*{Solution}
+\paragraph{}
+
+Let $\{ \mathscr{T}_\alpha\}$ be a family of topologies on $X$ and let $\mathscr{A}$ be the collection of all unions and finite intersections of elements in $\bigcup \mathscr{T}_\alpha$. By definition $\mathscr{A}$ is closed under unions and finite intersections and because each topology $\mathscr{T}_\alpha$ contains $X$ and $\varnothing$ so will $\mathscr{A}$; thus $\mathscr{A}$ is a topology.
+
+Clearly for each $\alpha$, we have $\mathscr{T}_\alpha \subset \mathscr{A}$. Suppose there is some other topoogy $\mathscr{A}'$ for which $\mathscr{T}_\alpha \subset \mathscr{A}'$ for all $\alpha$. Given any $U \in \mathscr{A}$ either $U = \bigcup_{i \in I} U_{\alpha}_i$ or $U \bigcap$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}  
