@@ -1,0 +1,99 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+\usepackage[mathscr]{euscript}
+
+
+%SetFonts
+
+%SetFonts
+
+
+\title{Characterization of the Finite Complement Topology on the Real Line}
+\author{Colton Kinstley}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+
+
+\section*{Abstract}
+\paragraph{}
+
+A proof that all open sets in the finitie complement copology on the real lie can be written as the finite union $(- \infty , a_1) \cup (a_1,a_2) \cup \dots \cup (a_{n-1}, a_n) \cup (a_n, \infty)$.
+
+
+\section*{Definitions}
+\paragraph{}
+
+Given a set $X$ let $\mathscr{T}_f$ be the collection of all subsets $U$ of $X$ such that $X \setminus U$ is either all of $X$ or is finite. That is,
+
+\[
+\mathscr{T}_f = \{ U \subset X | U \setminus X = X \text{ or } U \setminus X \text{ is finite} \}.
+\]
+
+
+
+
+\section*{A Charictarization of $\mathscr{T}_f$}
+\paragraph{}
+
+Given any open set $U$ in $(\mathbb{R},\mathscr{T}_f)$, $U$ is either all of $\mathbb{R}$ or can be written in the form
+
+\[
+U = (- \infty , a_1) \cup (a_1,a_2) \cup \dots \cup (a_{n-1}, a_n) \cup (a_n, \infty)
+\]
+with $a_i \in \mathbb{R}$ and $ i \in \mathbb{N}$.
+
+\subsection*{Proof}
+\paragraph{}
+
+First we claim that given any $U$ open in $\mathbb{R}$ there must exist some $n \in \mathbb{N}$ such that
+\[
+\mathbb{R} \setminus U = \{x_i\}_{i=1}^n \text{ with } x_i \in \mathbb{R}.
+\]
+
+If not then either the RHS is empty and the hypotheses holds with $U = $. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
