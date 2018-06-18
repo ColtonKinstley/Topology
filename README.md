@@ -1,2 +1,2 @@
-# Topology
-Solutions to the exercises in Topology by James Munkres.
+# Topology Exercises
+Solutions to some of the exercises in Topology by James Munkres.
