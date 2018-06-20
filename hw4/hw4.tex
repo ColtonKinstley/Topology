@@ -1,0 +1,170 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
+
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+\usepackage[mathscr]{euscript}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\tor}{\text{ or }}
+\newcommand{\twhere}{\text{ where }}
+\newcommand{\tfor}{\text{ for }}
+\newcommand{\st}{\mid}
+\newcommand{\qed}{\begin{center}
+$\square$
+\end{center}}
+\newcommand{\nullset}{\varnothing}
+\newcommand{\set}[1]{\{ #1 \}}
+
+
+%SetFonts
+
+%SetFonts
+
+
+\title{Selected Exercises \S18}
+\author{Colton Kinstley}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\section*{Question 2}
+\paragraph{}
+Suppose $f:X \rightarrow Y$ is continuous. If $x$ is a limit point of the subset $A$ of $X$, is it necessarily true that $f(x)$ is a limit point of $f(A)$?
+
+\subsection*{Solution}
+\paragraph{}
+
+Not necessarily. Consider any constant function $f:\R \rightarrow \R$, defined by $f(x) = a$ for some $a 
+\in \R$. Then given any $A \neq \nullset$ we have $f(A) = \{a\}$. But, this set has no limit points. For a counter example to the claim take $A = (0,1)$ this set has limit points $A' = [0,1]$. In particular $f(1) = a$, but any neighborhood of $f(1)$ intersects $\set{a}$ only at $f(1) = a$ and thus is not a limit point of $f(A)$.
+
+
+\section*{Question 7a}
+\subsection*{Claim}
+
+\paragraph{}
+
+Suppose $f:\R_\ell \rightarrow \R$. Then $f$ is continuous if and only if 
+
+\begin{equation*}
+\lim_{x \rightarrow a^+} f(x) = f(a).
+\end{equation*}
+
+\subsection*{Proof}
+\paragraph{}
+
+Suppose the above limit holds. Then by the definition of this limit we have
+\begin{eqnarray*}
+\forall \epsilon > 0 \tand \forall a \in \R, \  \exists \delta>0 \text{ s.t. }\\
+ a < x < a + \delta \Rightarrow | f(x) -f(a)| < \epsilon.
+\end{eqnarray*}
+Given any $a \in \R$ and neighborhood $V$ of $a$ there exists a basis element $(c,d)$ such that $a \in (c,d) \subset V$. Take $\epsilon = \min{\set{f(a) - c, f(a) +d}}$, and set $V^* = (f(a)-\epsilon, f(a) + \epsilon) \subset V$. Then by hypothesis there exists $U = [a,a+\delta)$ such that $f(U) \subset f(V^*) \subset V$. But, $U$ is a neighborhood containing $a$ and since $a \tand V$ were chosen arbitrarily we have satisfied equivalence (4) of theorem 18.1 [Munkres] and may conclude that $f$ is continuous.
+
+Conversely, suppose $f$ is continuous. Given $\epsilon > 0 \tand a \in \R$ note that 
+\begin{equation*}
+V = (f(a)-\epsilon, f(a) + \epsilon)
+\end{equation*}
+is a neighborhood containing $f(a)$. Thus there exists a neighborhood $U$ of $a$ open in $\R_\ell$ such that $a \in U \tand f(U) \subset V$. Let $[b,c) \subset U$ be a basis element containg $a$. Then take $\delta = c-a$ to get $[a,a+\delta) \subset [b,c) \subset U$. Since 
+\begin{equation*}
+f([a,a+\delta)) \subset f(U) \subset V = (f(a)-\epsilon, f(a) + \epsilon)
+\end{equation*}
+we have that for any $\epsilon > 0$ and $a \in \R$ there is  a $\delta$ such that $a<x<a+\delta$ implies that $|f(x)-f(a)| < \epsilon$. \qed
+
+
+\section*{Question 9b}
+\paragraph{}
+
+Let $\set{A_\alpha}$ be a collection of subsets of $X$ such that $X = \bigcup_\alpha A_\alpha$. Let $f:X \to Y$. Suppose $f \big|_{A_\alpha} $ is continuous for each $\alpha$. Find an example where the collection $\set{A_\alpha}$ is countable and each $A_\alpha$ is closed, but $f$ is not continuous.
+
+\subsection*{Solution}
+\paragraph{}
+
+Take for example $X = \bb{Z}$ under the finite complement topology. Then $U$ is open in $\bb{Z}$ if $\bb{Z} \setminus U$ is finite or all of $\bb{Z}$. Let $\set{A_\alpha} = \set{n}_{n \in \bb{Z}}$ then each $\set{n}$ is closed in $\bb{Z}$ as $\bb{Z} \setminus ( \bb{Z} \setminus \set{n})$ is open and their union is clearly all of $\bb{Z}$. Let $f:\bb{Z} \to \R$ by $f(x) = x$ then the restriction $f \big|_{\set{n}} $ is continuous because given any open set $V$ containing $f(n) = n$ we have that $U = f \big|_{\set{n}}^{-1}(n) = {n}$ and  $\set{n} \setminus \set{n} = \nullset$. So $U$ is open. 
+
+On the other hand, given any open set in $\R$ of the form $(a,b)$ where $-\infty < a< b< \infty$ we see that $U = f^{-1}((a,b)) = \set{n \in \bb{Z} \st a<n<b}$. Clearly this set is finite, thus $\Z \setminus U$ is infinite and not open. We conclude that $f$ is not continuous.
+
+
+
+
+
+
+
+
+
+\section*{Extra Question}
+Prove that the interval $(0,1)$ is homeomorphic to $\R$ but not to the interval $[0,1)$.
+
+\subsection*{Proof}
+
+To show that $(0,1)$ is homeomorphic to $\R$ we exhibit such a homeomorphism. Take $f:(0,1) \to \R$ by $f(x) = \frac{x-1/2}{x(x-1)}$. This is a rational polynomial with nonzero denominator on its domain and is thus continuous. Further $lim_{x \to \infty} f(x) = \infty$ and $lim_{x \to -\infty} f(x) = -\infty$, thus $f$ onto. Since $f$ is monotonically decreasing on $(0,1)$, (we have $f'(x) = \frac{-(2x^2 - 2x +1)}{2(x^2-x)^2} < 0$ ) we know that $f$ is one to one and thus is a bijection. Computing the inverse, 
+
+\begin{eqnarray*}
+&f^{-1}(y) = \frac{1+y -\sqrt{1+y^2}}{2y} \tfor y \neq 0, \tand \\
+&f^{-1}(y) = 1/2 \tfor y = 0
+\end{eqnarray*}
+we see that it is indeed continuous.
+
+To see that there is no homeomorphism from (0,1) to [0,1) we will show that there can be no continuous bijection from (0,1) to [0,1); this follows from continuity in real analysis. Indeed if there were such a function then there would a unique point $x \in (0,1)$ such that $f(x) = 0$ since $f$ is continuous we have that closed/open intervals are mapped to closed/open intervals. Consider that there must be intervals $[x,x+\epsilon] \tand [x-\epsilon, x]$ such that
+
+\begin{eqnarray*}
+f([x,x+\epsilon]) = [0,a) \\
+f([x-\epsilon, x]) = [0,b)
+\end{eqnarray*}
+since $f$ is bijective this implies that at least one of the values in $[0,\min{a,b})$ are taken twice by $f$. Which contradicts the infectivity of $f$.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

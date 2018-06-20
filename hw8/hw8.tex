@@ -1,0 +1,160 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
+
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+\usepackage[mathscr]{euscript}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\tor}{\text{ or }}
+\newcommand{\twhere}{\text{ where }}
+\newcommand{\tfor}{\text{ for }}
+\newcommand{\st}{\mid}
+\newcommand{\qed}{\begin{center}
+$\square$
+\end{center}}
+\newcommand{\nullset}{\varnothing}
+\newcommand{\set}[1]{\{ #1 \}}
+
+%SetFonts
+
+%SetFonts
+
+
+\title{Selected Exercises \S23 \& \S28}
+\author{Colton Kinstley}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\section*{Question \S23-7}
+\paragraph{}
+
+Is the space $\R_\ell$ connected? Justify your answer.
+
+\subsection*{Solution}
+\paragraph{}
+
+No, $\R_\ell$ is not connected. To see this consider the open sets formed by fixing $b$ in $\R_\ell$
+
+\begin{eqnarray*}
+U_1 = \bigcup_{x<b}[x,b) = (-\infty, b) \\
+U_2 = \bigcup_{b<x}[b,x) = [b,\infty).
+\end{eqnarray*}
+
+The sets $U_1 \tand U_2$ clearly form a separation of $\R_\ell$.
+
+\section*{Question \S23-11}
+\paragraph{}
+Let $p:X \to Y$ be a quotient mp. Show that if each set $p^{-1}(\set{y})$ is connected, and if $Y$ is connected, then $X$ is connected.
+
+\subsection*{Solution}
+\paragraph{}
+
+Suppose $X$ is not connected, let $A \tand B$ be a separation of $X$. We will show that $A \tand B$ are saturated with respect to $p$. 
+
+Given any $y \in Y$ the set $p^{-1}(\set{y})$ must lie entirely within $A \tor B$ since $p^{-1}(\set{y})$ is connected. Thus $A$ must contain any set $p^{-1}(\set{y})$ that it intersects. Likewise for $B$. Further, note that since $p$ is surjective $p(A) \cup p(B) = Y$ and $p(A) \cup p(B) = \nullset$, otherwise a point in the intersection would have pre-image lying in both $A \tand B$. Since $p$ takes saturated open sets of $X$ to open sets in $Y$, $p(A) \tand p(B)$ are open and thus form a separation of $Y$, a contradiction.
+
+\section*{Question \S28-3}
+\paragraph{}
+
+Let $X$ be limit point compact.
+
+\begin{enumerate}[(a)]
+\item
+If $f:X \to Y$ is continuous, does it follow that $f(X)$ is limit point compact?
+\item
+If $A$ is a closed subset of $X$, does it follow that $A$ is limit point compact?
+\end{enumerate}
+
+\subsection*{Solution (a)}
+\paragraph{}
+ 
+Yes, $f(X)$ is limit point compact. Suppose $A \subset f(X)$ and $A$ has infinitely man points. Then $f^{-1}(A)$ has infinitely many points and so has a limit point in $X$, say $x$. Then there exists a net in $f^{-1}(A)$, say $\set{x_\lambda}_{\lambda \in \Lambda}$ such that $x_\lambda \to x$. By continuity of $f$, $f(x_\lambda \to f(x)$, thus $f(x)$ is a limit point of $A$.
+
+\subsection*{Solution (b)}
+\paragraph{}
+
+Yes, $A$ is limit point compact. If $A$ is closed then $A$ contains all of it's limit points. Given $B$, an infinite subset of $A$, $B$ has a limit point in $X$, being an infinite subset of $X$. But since $B \subset A$ this limit point must lie within $A$. Thus $A$ is limit point compact.
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

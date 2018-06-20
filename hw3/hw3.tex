@@ -1,0 +1,204 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
+
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+\usepackage[mathscr]{euscript}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\tor}{\text{ or }}
+\newcommand{\twhere}{\text{ where }}
+\newcommand{\tfor}{\text{ for }}
+\newcommand{\qed}{\begin{center}
+$\square$
+\end{center}}
+\newcommand{\st}{\mid}
+
+
+%SetFonts
+
+%SetFonts
+
+
+\title{Selected Exercises \S17}
+\author{Colton Kinstley}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\section*{Question 6}
+\paragraph{}
+
+Let $A, B \tand A_{\alpha}$ denote subsets of a space $X$. Prove the following:
+\begin{enumerate}[(a)]
+
+\item
+If $A \subset B$, then $\bar{A} \subset \bar{B}$
+\item
+$\overline{A \cup B} = \bar{A} \cup \bar{B}$
+\item
+$\overline{\bigcup A_\alpha} \supset \bigcup \bar{A_\alpha}$
+
+\end{enumerate}
+
+\subsection*{Proof (a)}
+\paragraph{}
+
+By definition $\bar{B}$ is the intersection of all closed sets containing $B$. But, $A \subset B$ and $\bar{B}$ is closed; in particular $\bar{B}$ is a closed set containing $A$. Since $\bar{A}$ is equal to the intersection of all such sets we must have $\bar{A} \subset \bar{B}$. \qed
+
+\subsection*{Proof (b)}
+\paragraph{}
+
+First we will show that $\bar{A} \cup \bar{B} \subset \overline{A \cup B}$. Using (a) we have that the following implications hold
+
+\begin{eqnarray*}
+&A \subset A \cup B \Rightarrow \bar{A} \subset \overline{A \cup B} \\
+&\tand \\
+&B \subset A \cup B \Rightarrow \bar{B} \subset \overline{A \cup B}. \\
+\end{eqnarray*}
+Noting that both antecedents are tautologies our result follows.
+\par{}
+
+Now we will show that $\overline{A \cup B} \subset \bar{A} \cup \bar{B}$. Since $A \subset \bar{A} \tand B \subset \bar{B}$ we have that $A \cup B \subset \bar{A} \cup \bar{B}$. The finite union of closed sets is closed, so $\bar{A} \cup \bar{B}$ is a closed set containing $A \cup B$ and thus contains $\overline{A \cup B} $. \qed
+\par{}
+
+\subsection*{Proof (c)}
+
+We wish to show that $\overline{\bigcup A_\alpha} \supset \bigcup \bar{A_\alpha}$ but, for each $\alpha$, $\overline{\bigcup A_\alpha}$ is a closed set containing $A_\alpha$. Thus $\bar{A_\alpha} \subset \overline{\bigcup A_\alpha}$ for all $\alpha$. The containment of their union follows. \qed
+
+
+\section*{Question 8}
+\paragraph{}
+
+Let $A, B \tand A_{\alpha}$ denote subsets of a space $X$. Determine whether the following equations hold; if an equality fails, determine whether one of the inclusions $\subset \tor \supset$ holds.
+\begin{enumerate}[(a)]
+
+\item
+$\overline{A \cap B} = \bar{A} \cap \bar{B}$
+\item
+$\overline{\bigcap A_\alpha} = \bigcap \bar{A_\alpha}$
+\item
+$\overline{A - B} = \bar{A} - \bar{B}$
+
+\end{enumerate}
+
+\subsection*{Solution (a)}
+\paragraph{}
+
+We have that $A \subset \bar{A} \tand B \subset \bar{B}$. It follows that $A \cap B \subset \bar{A} \cap \bar{B}$. Since $\bar{A} \cap \bar{B}$ is closed we must have that $\overline{A \cup B} \subset \bar{A} \cap \bar{B}$ as $\overline{A \cup B}$ is the intersection of all closed sets containing $A \cap B$.
+
+
+\subsection*{Solution (b)}
+\paragraph{}
+
+Suppose $x \in \overline{\bigcap A_\alpha}$ then every neighborhood $U$ of $x$ intersects $\bigcap A_\alpha$. So given any neighborhood $U$, we have that for all $\alpha$ $U \cap A_\alpha \neq \varnothing$. Thus, $x \in \bar{A_\alpha}$ for all $\alpha$ and $\overline{\bigcap A_\alpha} \subset \bigcap \bar{A_\alpha}$.
+
+
+\subsection*{Solution (c)}
+\paragraph{}
+
+
+\section*{Question 13}
+\paragraph{}
+
+Show that $X$ is Hausdorff if and only if the \emph{diagonal} $\Delta = \{ x \times x \st x \in X \}$ is closed in $X \times X$.
+
+\subsection*{Proof}
+\paragraph{}
+
+Suppose that $\Delta$ is closed in $X \times X$. Then $W = X \times X \setminus \Delta$ is an open set. We wish to show that given $x_1, x_2 \in X$ there exist $U \and V$ open in $X$ such that $U \cap V = \varnothing$. Consider the point $(x_1, x_2)$ in $X \times X$. Since $x_1 \neq x_2$ we have that $(x_1, x_2) \in W$. Then there exist $U, V \subset X$ open such that $x_1 \in U \tand x_2 \in V$ and $U \times V \subset W$. We see that $U \tand V$ do not intersect for if they did, say at $y \in X$ then $(y,y) \in W$ a contradiction.
+
+Now suppose that $X$ is Hausdorff. We have that for each pair $(x_i, x_j) \in X \times X$ where $x_i \neq x_j$ that there exist $U_{x_i}, V_{x_j} \in X$ such that $U_{x_i} \cap V_{x_j} = \varnothing$. Let $W$ be the union of all $U_{x_i} \times V_{x_j}$. Then $W$ is open and $X \times X \setminus W = \Delta$ is closed. \qed
+
+
+
+\section*{Extra Question}
+\paragraph{}
+
+Assume that $(X,d)$ is a metric space, and $E \subset X$ is a nonempty subset. Denote by $E'$ the limit (or accumulation) points of $E$.
+
+\begin{enumerate}[(a)]
+
+\item
+Prove that $E'$ is closed.
+\item
+Prove that $E$ and $\bar{E}$ have the same limit points.
+\item
+Do $E$ and $E'$ always have the same limit points?
+
+\end{enumerate}
+
+
+\subsection*{Proof (a)}
+\paragraph{}
+
+Take $x$ a limit point of $E'$. Then for all neighborhoods $V$ of $x$ we have that $V \cap E' \neq \varnothing$, say $V$ intersects $E'$ at the point $\{y\}$. Then $y \in E'$ so for any neighborhood $U$ of $y$, $U \cap E \neq \varnothing$. But, $V$ is also a neighborhood of $y$. So $V \cap E \neq \varnothing$. Thus $x \in E'$; which shows that $E'$ contains it's limit points and must be closed.
+
+\subsection*{Proof (b)}
+\paragraph{}
+
+First we will show that $E' \subset \bar{E}'$. Suppose $x \in E'$ then for every neighborhood $V$ of $x$ we have that $V \setminus \{x\} \cap E \neq \varnothing$. But, $E \subset \bar{E}$ so $V \setminus \{x\}$ also intersects $\bar{E}$. Thus $x \in \bar{E}'$.
+
+For the reverse inclusion suppose $x \in \bar{E}'$. Then for all neighborhoods $V$ of $x$ we have  $V \setminus \{x\} \cap \bar{E} \neq \varnothing$. Say $V$ intersects $\bar{E}$ at the point $\{y\}$. Since $\bar{E} = E \cup E'$ either $y \in E \tor y \in E'$. If $y \in E$ then $V \setminus \{x\} $ intersects $E$ at $y$. So $x \in E'$. If $y \in E'$ then for any neighborhood $U$ of $y$ we have that $U$ intersects $E$ at some point other than $y$. But, $V \setminus \{x\}$ is also a neighborhood of  $y$ so $V \setminus \{x\}$ intersects $E$. Thus $x \in E'$. \qed
+
+\subsection*{Part (c)}
+\paragraph{}
+
+It is clear that the limit points of $E$ are a subset of the limit points of $\bar{E}$ as $\bar{E} = E \cup E'$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+\end{document}

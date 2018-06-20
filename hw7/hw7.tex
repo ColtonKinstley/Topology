@@ -1,0 +1,191 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
+
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+\usepackage[mathscr]{euscript}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\tor}{\text{ or }}
+\newcommand{\twhere}{\text{ where }}
+\newcommand{\tfor}{\text{ for }}
+\newcommand{\st}{\mid}
+\newcommand{\qed}{\begin{center}
+$\square$
+\end{center}}
+\newcommand{\nullset}{\varnothing}
+\newcommand{\set}[1]{\{ #1 \}}
+
+%SetFonts
+
+%SetFonts
+
+
+\title{Selected Exercises \S29, \S34 \& \S38}
+\author{Colton Kinstley}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\section*{Question}
+\paragraph{}
+
+Prove that $T_{3\frac{1}{2}}$ is a hereditary property.
+
+\subsection*{Proof}
+\paragraph{}
+
+Suppose $X$ is completely regular and $Y$ is a subspace of $X$. Let $B \subset Y$ be closed and $y_0 \in Y$ a point not in $B$. Then $B = A \cap Y$  for some $A$ closed in $X$. Note that $y_0$ is not in $A$ since $y_0 \in Y \tand Y_0 \not \in B$. Because $X$ is completely regular there is a continuous function $f:X \to [0,1]$ where $f(A) = \set{0} \tand f(y_0) = 1$. The restriction of this function to $Y$ is continuous and $f|_Y(B) = 0$ (since $B \subset A$) and $f|_Y(y_0) = 1$. Thus $Y$ is completely regular. \qed
+
+\section*{Question \S34-4}
+\paragraph{}
+
+Let $X$ be a locally compact Hausdorff space. Is is true that if $X$ has a countable basis, then $X$ is metrizable? Is it true that if $X$ is metrizable , then $X$ has a countable basis?
+
+\subsection*{Solution}
+\paragraph{}
+
+The first claim is true, we will show that locally compact Hausdorff spaces are regular. Then the result follows from the Urysohn metrization theorem. Theorem 29.2 [Munkres] states that a space $X$ is locally compact Hausdorff if and only if given any $x$ and neighborhood $U$ of $x$, there exists a neighborhood $V$ of $x$ such that $\bar{V} \subset U$ with $\overline{V}$ compact.
+
+Given $x \in X$ and $K$ closed such that $x \not \in K$ take $U = X \setminus K$ as in the above theorem. Then there exist $V \tand \overline{V}$ disjoint from $K$. Letting $W = X \setminus \overline{V}$ we have $K \subset W$. Then $V \tand W$ are disjoint open sets that sepreate $x \tand K$. So $X$ is regular.
+
+The second part is not true. We can take as counter example $\R$ with the discrete topology. It is clearly Hausdorff, it's metrizable by taking as metric the function $p(x,y) = 0 \tfor x = y \tand p(x,y) = 1 \tfor x \neq y$. This space is locally compact as every subset is both open and closed so every open set equals its closure. But is not second countable since any basis $\scr{B}$ would have to contain as a subset $\set{x \st x \in \R}$ which is uncountable.
+
+
+\section*{Question \S29-1}
+\paragraph{}
+ 
+ Show that the rationals $\Q$ are not locally compact.
+ 
+ \subsection*{Solution}
+ \paragraph{}
+ 
+Suppose that $\Q$ as a subspace of $\R$ is locally compact, we will use theorem 29.2 to show that there exists a compact interval $[a,b] \subset \Q$ then derive a contradiction. Take $x \in U$ any point and neighborhood. Then there exists a neighborhood of $V$ of $x$ such that $\overline{V}$ is compact. Let $(a,b) \subset V$ be a basic set containing $x$. Then it's closure $[a,b]$ is a subset of $\overline{V}$. Take this interval as a closed subspace of a compact metric space, $\overline{V}$, by theorem 26.2 [Munkres] $[a,b]$ is compact. Thus by Theorem 28.2 [Munkres] $[a,b]$ is sequentially compact. However, given a sequence of rational numbers in $[a,b]$ converging to an irrational number say $\alpha \in [a,b] \subset \R$ that same sequence will not converge in $[a,b] \subset \Q$ considering that all subsequences will also converge to $\alpha$ we conclude that $[a,b]$ is not sequentially compact. A contradiction.
+
+\section*{Question \S29-2}
+\paragraph{}
+
+Let $X = \set{X_\alpha}$ e and indexed family of nonempty spaces.
+
+\begin{enumerate}[(a)]
+\item
+Show that if $X = \prod X_\alpha$ is locally compact, then each $X_\alpha$ is locally compact and $X_\alpha$ is compact for all but finitely many values of $\alpha$.
+\item
+Prove the converse, assuming the Tychnoff theorem.
+\end{enumerate}
+
+\subsection*{Proof (a)}
+\paragraph{}
+
+Suppose $X = \prod X_\alpha$ then given any $x \in  X$ there exists $U$ open and $K$ compact with $x \in U \subset K$. We have that $U = \prod U_\alpha$ for some $U_\alpha$ open in $X_\alpha$ and $U_\alpha = X_\alpha$ for all but finitely many $\alpha$. Since $U \subset K$ we must have that if $U_\alpha = X_\alpha$, then $\pi_\alpha(K) = X_\alpha$. Each $K_\beta$ is compact since given any cover $\set{A_\lambda}_{\lambda \in \Lambda}$ of $K_\beta$ we can form a cover of $K$ by taking $\scr{B} = \set{B \subset X \st \pi_\alpha (B) = X_\alpha \tfor \alpha \neq \beta \tand \pi_\beta (B) = A_\lambda \tfor \lambda \in \Lambda}$ which has a finite subcover (since $K$ is compact), say $\set{B_i}_{i = 1}^n$. The set $\set{\pi_\beta (B_i)}_{i = 1}^n$ is a finite cover of $K_\beta$. We conclude that each $X_\beta$ is locally compact since given any $x_\beta \in X_\beta$ there is an $x \in X$ such that $x_\beta = \pi_\alpha(x)$. But, $\pi_\beta(U) \subset \pi_\beta(K)$, $\pi_\beta(U)$ is open and $\pi_\beta(K)$ is compact. Further since for any $K$ satisfying the definition of local compactness each $\pi_\alpha(K)$ is compact and only finitely man of the $\pi_\alpha(K)$ are not equal to all of $X_\alpha$ we conclude that all but finitely many of the $X_\alpha$ are compact. \qed
+
+\subsection*{Proof (b)}
+\paragraph{}
+
+To prove the converse let $A$ be the finite set of $\alpha$ for which $X_\alpha$ is not compact. Then given any $x \in X$ there exists $U_a \in X_a$ open and $K_a \in X_a$ compact such that $U_a \subset K_a$ for each $a \in A$. Let $U$ be the open set formed by taking the product of all $U_a$ for $a \in A$ with $X_\alpha$ for $\alpha \not \in A$ and $K_a$ for $a \in A$ with $X_\alpha$ for $\alpha \not \in A$. Then $U$ is open in $X$ and by Tychnoff's theorem $K$ is compact in $X$. \qed
+
+ 
+\section*{Question}
+\paragraph{}
+
+Assume X is a locally compact space, denote by $Y$ its one-point compactification; characterize the continuous functions $f:X \to \R$ that have an extension to $Y$.
+
+\subsection*{Solution}
+\paragraph{}
+
+
+
+\section*{Question \S38-2}
+\paragraph{}
+
+Show that the bounded continuous function $f:(0,1) \to \R$ defined by $g(x) \cos(1/x)$ cannot be extended to the compactification of Example 3. define an imbedding $h: (0,2) \to [0,1]^3$ such that the functions $x$, $\sin(1/x)$, and $\cos(1/x)$ are all extendable to the compactification induced by $h$.
+
+\subsection*{Solution}
+\paragraph{}
+
+In Example 3 the embedding is given by $Y \simeq \overline{h((0,1))}$ where $h(x) = (x,sin(\frac{1}{x}))$ is an imbedding of $(0,1)$ into $[0,1]^2$. To show that there is no continuous extension of $cos(1/x)$ to the compactification $Y$ we consider the sequence in $(0,1)$ given by $x_n = {1 \over \pi n}$ it's image under $h$ is $h(x_n) = \set{(\frac{1}{\pi n}, sin(\pi n))}$. As $k \to \infty$ we see that $h(x_n) \to (0,0)$. Since any continuous extension must also converge to a limit point with this sequence and agree with $\cos(1/x)$ on $(0,1)$ we arrive at a contradiction as $\lim_{n \to \infty} \cos(\pi n)$ does not exist.
+
+For the second part of the question we follow the line from Example 4 but we let our compactification be induced by the function $h:(0,1) \to [0,1]^3$ by $h(x) = (x,\sin(1/x),\cos(1/x))$. So that if $Y \simeq \overline{h((0,1))}$, then the composition
+
+\begin{eqnarray*}
+Y \xrightarrow{H} \R^3 \xrightarrow{\pi_1} \R
+\end{eqnarray*}
+is continuous since it is the composition of continuous functions and is equal to $x$ on $X$. Changing the final composition to the projection function to the second and third coordinates provides the other two extensions for the same reason.
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

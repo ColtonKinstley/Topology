@@ -1,0 +1,221 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or epsÂ§ with pdflatex; use eps in DVI mode
+
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+\usepackage[mathscr]{euscript}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\tor}{\text{ or }}
+\newcommand{\twhere}{\text{ where }}
+\newcommand{\tfor}{\text{ for }}
+\newcommand{\qed}{\begin{center}
+$\square$
+\end{center}}
+\newcommand{\st}{\mid}
+
+
+%SetFonts
+
+%SetFonts
+
+
+\title{Selected Exercises \S16}
+\author{Colton Kinstley}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+
+\section*{Question 1}
+\paragraph{}
+Show that if $Y$ is a subspace of $X$, and $A$ is a subset of $Y$, then the topology $A$ inherits as a subspace of $Y$ is the same as the topology it inherits as a subspace of $X$.
+
+\subsection*{Proof}
+\paragraph{}
+
+Suppose $A \subset Y \subset X$ and let $\scr{T}_X$ be a topology on $X$ and $\scr{T}_Y$ be the corresponding subspace topology on $Y$. Let $\scr{A}_X$ denote the subspace topology that $A$ inherits from $(X,\scr{T}_X)$ and $\scr{A}_Y$ be the subspace topology $A$ inherits from $(Y,\scr{T}_Y)$. We will show that $\scr{A}_X \subset \scr{A}_Y$. Let $U \in \scr{A}_X$ then $U = W \cap A$ for some $W$ open in $X$. Since $Y \cap A = A$ we have that 
+
+\[
+U = W \cap (Y \cap A) = (W \cap Y) \cap A.
+\]
+Where $W \cap Y$ is an open set in the subspace topology on $Y$. Thus $U \in \scr{A}_Y$.
+
+On the other hand if $U \in \scr{A}_Y$, then $U = V \cap A$ for some $V$ open in Y. But, since $V = W \cap Y$ for some $W$ open in $X$ we have that
+
+\[
+U = (W \cap Y) \cap A = W \cap (Y \cap A) = W \cap A.
+\]
+Thus $U \in \scr{A}_X$ and $\scr{A}_Y \subset \scr{A}_X$. \qed
+
+
+\section*{Question 4}
+\paragraph{}
+
+A map $f:X \rightarrow Y$ is said to be an \emph{open map} if for every open set $U$ of $X$, the set $f(U)$ is open in $Y$. Show that $\pi_1:X \times Y \rightarrow X \tand \pi_2:X \times Y \rightarrow Y$ are open maps.
+
+\subsection*{Proof}
+\paragraph{}
+
+Suppose $u \times v$ is open in $X \times Y$ then 
+
+\[
+u \times v = \bigcup_{\alpha \in J}(u_{\alpha} \times v) = (\bigcup_{\alpha \in J}u_{\alpha} \times v)
+\]
+for $\{u_{\alpha}\}$ some collection of open sets in $X$. Applying $\pi_1$ we have that
+
+\[
+\pi_1(u \times v) = \pi_1(\bigcup_{\alpha \in J}(u_{\alpha} \times v)) = \bigcup_{\alpha \in J}u_{\alpha}
+\]
+which is a union of open sets in $X$ and thus itself is open in $X$. The proof that $\pi_2$ is an open map is nearly identical. \qed 
+
+
+\section*{Question 6}
+\paragraph{}
+
+Show that the countable collection
+
+\[
+\{(a,b) \times (c,d) \st a < b, c<d \tand a,b,c,d \in \bb{Q} \}
+\]
+is a basis for $\R^2$.
+
+\subsection*{Proof}
+\paragraph{}
+
+The standard topology on $\R^2$ is formed by taking as basis the set 
+\[
+\scr{B} = \{u \times v \st u,v \in \scr{T}_\R \}.
+\]
+So by theorem 15.1 [Munkres] we need only show that 
+
+\[
+\scr{C} = \{ (a,b) \st a<b \tand a,b \in \bb{Q} \}
+\]
+is a basis for $\R$. But, this was done in Homework 1 question 8a. The proof of which is included as an appendix. \qed
+
+
+\section*{Question 9}
+\paragraph{}
+
+Show that the dictionary order topology on the set $\R \times \R$ is the same as the product topology $\R_d \times \R$ where $\R_d$ is the discrete topology. Compare this topology with the standard topology on $\R^2$.
+
+\subsection*{Proof}
+\paragraph{}
+
+We note that the set $\scr{B} = \{ \{x\} \st x \in \R \}$ is a basis for the discrete topology on $\R$. Each $x \in \R$ lies in an element of $\scr{B}$ and the intersection of basis elements $B_1, B_2$ is empty unless $B_1 = B_2$. Thus we have by theorem 15.1 [Munkres] that a basis element $U$ of $\R_d \times \R$ is such that
+
+\[
+U = \{\alpha\} \times (a,b) \tfor \alpha, a ,b \in \R.
+\]
+
+First we show that $(\R^2 , \scr{T}_{dict}) \subset \R_d \times \R$. Using lemma 13.3 we take $(x, y) \in B$, $B = (a \times b, c \times d)$ a basis element of  $(\R^2 , \scr{T}_{dict})$. Since the dictionary order on $\R$ has no smallest or largest element we have only the open intervals as basis elements. We consider the following cases for $(x, y)$.
+
+\subsubsection*{Case 1:}
+If $a < x < c \tand y \in \R$ then we may take $B' = \{x\} \times (y+\epsilon, y-\epsilon)$ any $\epsilon > 0$ as our basis element of $\R_d \times \R$. Then $x \in B' \subset B$.
+
+\subsubsection*{Case 2:}
+If $x = a \tand y > b$ we may take $B' = \{x\} \times (b, y)$.
+
+\subsubsection*{Case 3:}
+If $x = a \tand y < d$ then we take $B' = \{x\} \times (y, d)$, whence in all cases lemma 13.3 is satisfied.
+
+Now we show that $\R_d \times \R \subset (\R^2 , \scr{T}_{dict})$. We again apply lemma 13.3. Fixing $(x,y) \in B = \{x\} \times (a,b)$ we have,
+\[
+ (x,y) \in B' = (x\times a, x \times b) \subset \{x\} \times (a,b).
+\]
+
+We can apply lemma 13.3 once more to see that when compared to the standard topology, $\R_d \times \R$ is finer than $\R^2$. For if $(x,y) \in B = (a,b) \times (c,d)$ then $(x,y) \in B' = \{x\} \times (c,d) \subset B$.
+\qed
+
+\section*{Appendix}
+The countable collection 
+
+\begin{equation*}
+\scr{B} = \{(ab,) \mid a< b, a \tand b \text{ rational} \}
+\end{equation*}
+is a basis that generates the standard topology on $\R$.
+
+
+\subsection*{Proof}
+
+Let $\scr{T}$ be the topology generated by $\scr{B}$. We will show that $\scr{T} = \scr{T}_\R$. Each element of $\scr{B}$ is also a basis element of $\scr{T}_\R$ so $ \scr{T} \subset \scr{T}_\R$.
+
+ Now suppose $U = (\alpha,\beta)$ is a basis element of $\scr{T}_\R$. For any $ x \in U$ there exists an open interval $(a,b)$ with  $a \tand b$ rational such that $\alpha < a < x < b < \beta$ because $\bb{Q}$ is dense in $\R$. Thus by lemma 13.3 $\scr{T}_\R \subset \scr{T}$. \qed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
